@@ -1,4 +1,4 @@
-package main.java.com.xjf.repository;
+package com.xjf.repository;
 
 import java.util.Date;
 
