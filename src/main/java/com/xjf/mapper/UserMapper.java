@@ -1,6 +1,6 @@
-package main.java.com.xjf.mapper;
+package com.xjf.mapper;
 
-import main.java.com.xjf.repository.User;
+import com.xjf.repository.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(String tUserid);
