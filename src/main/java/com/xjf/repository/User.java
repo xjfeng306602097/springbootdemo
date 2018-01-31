@@ -52,4 +52,5 @@ public class User {
     public void settSex(Integer tSex) {
         this.tSex = tSex;
     }
+
 }

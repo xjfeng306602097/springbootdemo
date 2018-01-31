@@ -2,7 +2,7 @@ spring:
   profiles:
     active: prd
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/springboot
+    url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
     username: root
     password: abcd1234
     type: com.alibaba.druid.pool.DruidDataSource

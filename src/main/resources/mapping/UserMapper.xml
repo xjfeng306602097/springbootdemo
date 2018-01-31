@@ -82,12 +82,12 @@
     </set>
     where t_userid = #{tUserid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjf.repository.User">
-    update t_user
-    set t_username = #{tUsername,jdbcType=VARCHAR},
-      t_password = #{tPassword,jdbcType=VARCHAR},
-      t_createdate = #{tCreatedate,jdbcType=TIMESTAMP},
-      t_sex = #{tSex,jdbcType=INTEGER}
-    where t_userid = #{tUserid,jdbcType=VARCHAR}
-  </update>
+
+  <insert id="batchInsertUser" parameterType="java.util.List">
+    insert into t_user(t_userid,tUsername,t_password,t_createdate,t_sex)
+    values
+    <foreach collection="list" item="item" separator="," >
+      ( #{item.tUserid},#{item.tUsername},#{item.tPassword},#{item.tCreatedate},#{item.tSex} )
+    </foreach>
+  </insert>
 </mapper>
