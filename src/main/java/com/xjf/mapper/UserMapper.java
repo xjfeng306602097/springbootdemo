@@ -1,7 +1,11 @@
 package com.xjf.mapper;
 
 import com.xjf.repository.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Mapper
+@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(String tUserid);
 

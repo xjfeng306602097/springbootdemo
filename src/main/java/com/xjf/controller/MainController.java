@@ -14,4 +14,9 @@ public class MainController {
         return "pages/index";
     }
 
+    @RequestMapping("/love")
+    public String toLove() {
+        return "pages/love";
+    }
+
 }
