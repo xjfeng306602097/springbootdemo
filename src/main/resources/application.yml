@@ -1,6 +1,10 @@
 spring:
   profiles:
     active: prd
+  redis:
+    host: localhost
+    password:
+    port: 6379
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
     username: root
@@ -21,6 +25,13 @@ spring:
       testOnReturn: false
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
+  application:
+    name: springbootdemo
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.repository

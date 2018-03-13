@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Import;
 
 @Configurable
 @MapperScan("com.xjf.mapper")
-@Import(SpringWebConfiguration.class)
+@Import({SpringWebConfiguration.class})
 public class SpringConfiguration {
 }

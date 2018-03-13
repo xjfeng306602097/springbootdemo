@@ -11,16 +11,13 @@ import com.xjf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping(value="/user")
@@ -68,6 +65,33 @@ public class UserController {
     @RequestMapping(value = ControllerPrefixConstant.LOGIN, method = RequestMethod.GET)
     public String login() {
         return ControllerPagesConstant.LOGIN;
+    }
+
+    @RequestMapping(value="/testLogin")
+    public String doLogin(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String sessionId = session.getId();
+        session.setAttribute("sessionId", sessionId);
+        return "pages/main";
+    }
+
+    @RequestMapping(value = "/main")
+    public String toMain(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String sessionId = (String) session.getAttribute("sessionId");
+        if (sessionId != null) {
+            return "pages/main";
+        } else {
+            return "redirect:/user/login";
+        }
+    }
+
+    @RequestMapping(value = "/testLogout")
+    public String testLogout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.removeAttribute("sessionId");
+        session.invalidate();
+        return "redirect:/user/login";
     }
 
 }

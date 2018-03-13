@@ -6,4 +6,6 @@ public interface UserService {
 
     User getUserById(String id);
 
+    int putUser(User user);
+
 }
