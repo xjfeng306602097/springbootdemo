@@ -30,8 +30,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: guest
-    password: guest
+    username: xiaojunfeng
+    password: abcd1234
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.repository
